@@ -1,0 +1,11 @@
+{
+  "name": "My Podcasts",
+  "slug": "my-podcasts",
+  "identifier": "dev.mygo.mypodcasts",
+  "version": "1.0.0",
+  "publisher": "My Podcasts",
+  "license": "MIT",
+  "icon": "resources/icon.png",
+  "resourcesExclude": ["icon.png"],
+  "out": "dist"
+}

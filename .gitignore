@@ -1,0 +1,19 @@
+# Build artifacts & releases
+dist/
+*.exe
+*.zip
+*.syso
+*.log
+
+# Local portable runtime data & secrets
+data/
+portable.txt
+auth.json
+auth.dpapi
+state.json
+
+# OS / IDE metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
