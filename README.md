@@ -46,14 +46,14 @@ Apple 官方长期未提供独立的 Windows 版 Apple Podcasts 桌面应用，�
 
 | 发行版本 | 文件名示例 | 特点与适用场景 |
 | :--- | :--- | :--- |
-| **安装版 (Setup)** | `my-podcasts-setup-v1.0.0-windows-amd64.exe` | 标准 Windows 安装向导（NSIS），默认用户级安装至 `%LOCALAPPDATA%\Programs`，自动创建开始菜单与桌面快捷方式，支持在「Windows 设置 → 应用」中一键卸载。 |
-| **便携版 (Portable)** | `my-podcasts-portable-v1.0.0-windows-amd64.zip` | 免安装，解压到任意文件夹或 U 盘即可运行 `My Podcasts.exe`。自带 `portable.txt` 标记，配置与缓存全部保存在同目录 `data\` 内（删除 `portable.txt` 则切回系统 `%APPDATA%`）。 |
+| **安装版 (Setup)** | `my-podcasts-setup-alpha0.0.1-windows-amd64.exe` | 标准 Windows 安装向导（NSIS），默认用户级安装至 `%LOCALAPPDATA%\Programs`，自动创建开始菜单与桌面快捷方式，支持在「Windows 设置 → 应用」中一键卸载。 |
+| **便携版 (Portable)** | `my-podcasts-portable-alpha0.0.1-windows-amd64.zip` | 免安装，解压到任意文件夹或 U 盘即可运行 `My Podcasts.exe`。自带 `portable.txt` 标记，配置与缓存全部保存在同目录 `data\` 内（删除 `portable.txt` 则切回系统 `%APPDATA%`）。 |
 
 > **系统依赖提示**：Windows 10 / 11 通常已预装 **Microsoft Edge WebView2 Runtime**（仅在点击「登录 Apple ID」时使用）；若系统精简版缺失该组件，可从 [Microsoft 官网](https://developer.microsoft.com/en-us/microsoft-edge/webview2/) 安装 Evergreen Runtime。不登录也可直接收听全部公开播客与榜单。
 
 > **校验安装包完整性（可选）**：
 > ```powershell
-> Get-FileHash .\my-podcasts-setup-v1.0.0-windows-amd64.exe -Algorithm SHA256
+> Get-FileHash .\my-podcasts-setup-alpha0.0.1-windows-amd64.exe -Algorithm SHA256
 > ```
 > 将输出的哈希值与 Release 附带的 `SHA256SUMS.txt` 对比一致即可。
 
@@ -132,18 +132,18 @@ powershell -ExecutionPolicy Bypass -File .\scripts\package-windows.ps1
 
 ```text
 dist\release\
-├── my-podcasts-setup-v1.0.0-windows-amd64.exe     # Windows 安装包
-├── my-podcasts-portable-v1.0.0-windows-amd64.zip  # 绿色便携版
-└── SHA256SUMS.txt                                 # SHA-256 校验文件
+├── my-podcasts-setup-alpha0.0.1-windows-amd64.exe     # Windows 安装包
+├── my-podcasts-portable-alpha0.0.1-windows-amd64.zip  # 绿色便携版
+└── SHA256SUMS.txt                                     # SHA-256 校验文件
 ```
 
 ### 6. GitHub Actions 自动发布
 
-仓库已配置 [`.github/workflows/release.yml`](.github/workflows/release.yml)。推送形如 `v1.0.0` 的版本 Tag 时，GitHub Actions 会自动在 `windows-latest` 上执行测试、封装 Setup `.exe` 与 Portable `.zip` 并发布到 GitHub Releases：
+仓库已配置 [`.github/workflows/release.yml`](.github/workflows/release.yml)。推送形如 `alpha0.0.1` 或 `v1.0.0` 的版本 Tag 时，GitHub Actions 会自动在 `windows-latest` 上执行测试、封装 Setup `.exe` 与 Portable `.zip` 并发布到 GitHub Releases：
 
 ```powershell
-git tag v1.0.0
-git push origin v1.0.0
+git tag alpha0.0.1
+git push origin alpha0.0.1
 ```
 
 ---

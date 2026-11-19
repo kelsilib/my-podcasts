@@ -2,7 +2,7 @@
   "name": "My Podcasts",
   "slug": "my-podcasts",
   "identifier": "dev.mygo.mypodcasts",
-  "version": "1.0.0",
+  "version": "alpha0.0.1",
   "publisher": "My Podcasts",
   "license": "MIT",
   "icon": "resources/icon.png",

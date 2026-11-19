@@ -63,11 +63,13 @@ try {
     New-Item -ItemType Directory -Path $ReleaseDir | Out-Null
     New-Item -ItemType Directory -Path $PortableStage | Out-Null
 
+    $VerTag = if ($Version -match '^[0-9]') { "v$Version" } else { $Version }
+
     $SetupSrc = Join-Path $PlatformDir "$Slug-setup-$Version-$Arch.exe"
     if (-not (Test-Path $SetupSrc)) {
         throw "未找到生成的安装包：$SetupSrc"
     }
-    $SetupDest = Join-Path $ReleaseDir "$Slug-setup-v$Version-windows-$Arch.exe"
+    $SetupDest = Join-Path $ReleaseDir "$Slug-setup-$VerTag-windows-$Arch.exe"
     Copy-Item -Force $SetupSrc $SetupDest
 
     $ExeSrc = Join-Path $PlatformDir "$AppName.exe"
@@ -94,7 +96,7 @@ My Podcasts 便携模式标记文件 (Portable Mode)
 "@
     Set-Content -Path (Join-Path $PortableStage "portable.txt") -Value $PortableNote -Encoding UTF8
 
-    $ZipDest = Join-Path $ReleaseDir "$Slug-portable-v$Version-windows-$Arch.zip"
+    $ZipDest = Join-Path $ReleaseDir "$Slug-portable-$VerTag-windows-$Arch.zip"
     Compress-Archive -Path (Join-Path $PortableStage "*") -DestinationPath $ZipDest -CompressionLevel Optimal -Force
     Remove-Item -Recurse -Force $PortableStage
 
