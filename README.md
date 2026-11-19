@@ -34,9 +34,6 @@ Apple 官方长期未提供独立的 Windows 版 Apple Podcasts 桌面应用，�
   - 无需安装 FFmpeg 或任何系统解码包，内置支持 **MP3、M4A / AAC（AAC-LC / HE-AAC v1 SBR / HE-AAC v2 PS）、OGG Vorbis、FLAC、WAV** 边下边播。
   - 支持 **WSOLA 变速不变调**（`0.75x / 1x / 1.25x / 1.5x / 1.75x / 2x`）、Windows 系统媒体控制中心（SMTC）与键盘多媒体键联动、系统代理自动适配。
   - 关闭应用自动记忆当前单集、播放队列、精确播放位置、音量、倍速及上次停留页面，重新打开无缝续听。
-- **🎒 完整安装版 & 真正绿色便携版**
-  - 提供标准 **Setup 安装包（NSIS）** 与解压即用的 **Portable 便携版（ZIP）**。
-  - 便携版内置 `portable.txt` 标记文件，所有本地状态与加密凭据均保存在程序同级 `data\` 文件夹中，不污染系统目录。
 
 ---
 
